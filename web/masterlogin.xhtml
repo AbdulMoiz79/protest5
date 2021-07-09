@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+
+    <title>Master Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="newstyle.css" />
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{accountController.verifyLogin()}"></f:event>
+    </f:metadata>
+</head>
+<body>
+
+<div class="cont">
+
+    <div class="form sign-in" align="center">
+
+        <h2>Sign In</h2>
+        <h:form style="padding-left: 5%; padding-right: 5%;">
+            <br/>
+            <div style="color: red;">
+            #{accountController.errorMessage}
+            </div>
+            <h:outputLabel>Username</h:outputLabel>
+            <h:inputText value="#{accountController.account.username}" required="true" style="max-width: 75%;">
+
+            </h:inputText>
+
+
+            <h:outputLabel>Password</h:outputLabel>
+            <h:inputSecret value="#{accountController.account.password}" style="max-width: 75%;">
+            </h:inputSecret>
+
+            <br/>
+            <div style="alignment: center">
+                <h:outputText value="Keep logged in"/>
+                <h:selectBooleanCheckbox value="#{accountController.remember}"/>
+            </div>
+
+            <h:commandButton action="#{accountController.Login()}" type="submit" class="submit" value="Login" style="border-radius: 30px; display: block;
+  color: #fff; font-size: 15px; width: 260px;height: 36px; align-self: center"></h:commandButton>
+        </h:form>
+
+        <p class="forgot-pass">Forgot Password ?</p>
+
+    </div>
+</div>
+</body></html>
